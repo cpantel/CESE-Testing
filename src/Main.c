@@ -2,13 +2,15 @@
 #include "Main.h"
 #include "stdio.h"
 
-int AppMain(void)
-{
-
+void init(){
   state.frecuencia_envio = BAJA;
   state.acercamiento = 0;
   state.enviar_y_reiniciar = 0;
+}
 
+int AppMain(void)
+{
+  init();
   enviarMensajeInicio();
 
   return 0;

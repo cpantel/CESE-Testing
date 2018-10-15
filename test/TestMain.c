@@ -23,3 +23,11 @@ void testMainInitialState() {
    TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
 }
 
+void testInit() {
+   init();
+   TEST_ASSERT_EQUAL(BAJA, state.frecuencia_envio);
+   TEST_ASSERT_FALSE(state.acercamiento);
+   TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
+
+}
+
