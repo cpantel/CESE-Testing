@@ -94,5 +94,13 @@ void testEnvioMensajesBajaFrecuencia(){
   reportar();  
 }
 
+void testEnvioMensajesAltaFrecuencia(){
 
+  enviarMensaje_Expect();
+
+  stateToACERCAMIENTO();
+
+  reportar();  
+
+}
 
