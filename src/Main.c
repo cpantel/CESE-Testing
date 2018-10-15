@@ -3,25 +3,38 @@
 #include "stdio.h"
 
 void init(){
-  state.frecuencia_envio = BAJA;
-  state.acercamiento = 0;
-  state.enviar_y_reiniciar = 0;
+  context.frecuencia_envio = BAJA;
+  context.acercamiento = 0;
+  context.enviar_y_reiniciar = 0;
 }
 
 void evaluarAcercamiento(){
 
   if (sensor.acercamiento) {
-    state.acercamiento = 1;
+    context.acercamiento = 1;
     sensor.acercamiento = 0;
-    state.frecuencia_envio = ALTA;
-    state.enviar_y_reiniciar = 1;
+    context.frecuencia_envio = ALTA;
+    context.enviar_y_reiniciar = 1;
   }
 }
 
+int sensoresNormal() {
+  return (
+    sensor.acercamiento == 0 &&
+    sensor.ocupacion == 0 &&
+    sensor.luz == 0 &&
+    sensor.motor_bajando == 0 &&
+    sensor.motor_subiendo == 0 &&
+    sensor.fin_carrera_arriba == 1 &&
+    sensor.fin_carrera_abajo == 0
+  );
+}
+
+
 void evaluarModo() {
   if (sensor.ocupacion ) {
-    state.frecuencia_envio = ALTA;
-    state.enviar_y_reiniciar = 1;
+    context.frecuencia_envio = ALTA;
+    context.enviar_y_reiniciar = 1;
   }
 }
 

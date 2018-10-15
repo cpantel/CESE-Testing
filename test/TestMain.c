@@ -18,32 +18,32 @@ void testMainShouldCallEnviarMensajeInicio() {
 void testMainInitialState() {
    enviarMensajeInicio_Expect();
    AppMain();
-   TEST_ASSERT_EQUAL(BAJA, state.frecuencia_envio);
-   TEST_ASSERT_FALSE(state.acercamiento);
-   TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
+   TEST_ASSERT_EQUAL(BAJA, context.frecuencia_envio);
+   TEST_ASSERT_FALSE(context.acercamiento);
+   TEST_ASSERT_FALSE(context.enviar_y_reiniciar);
 }
 
 void testInit() {
    init();
-   TEST_ASSERT_EQUAL(BAJA, state.frecuencia_envio);
-   TEST_ASSERT_FALSE(state.acercamiento);
-   TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
+   TEST_ASSERT_EQUAL(BAJA, context.frecuencia_envio);
+   TEST_ASSERT_FALSE(context.acercamiento);
+   TEST_ASSERT_FALSE(context.enviar_y_reiniciar);
 }
 
 void testEvaluarAcercamiento() {
    init();
    sensor.acercamiento = 0;
    evaluarAcercamiento();
-   TEST_ASSERT_EQUAL(BAJA, state.frecuencia_envio);
-   TEST_ASSERT_FALSE(state.acercamiento);
-   TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
+   TEST_ASSERT_EQUAL(BAJA, context.frecuencia_envio);
+   TEST_ASSERT_FALSE(context.acercamiento);
+   TEST_ASSERT_FALSE(context.enviar_y_reiniciar);
 
    sensor.acercamiento = 1;
    evaluarAcercamiento();
-   TEST_ASSERT_EQUAL(ALTA, state.frecuencia_envio);
+   TEST_ASSERT_EQUAL(ALTA, context.frecuencia_envio);
    TEST_ASSERT_FALSE(sensor.acercamiento);
-   TEST_ASSERT_TRUE(state.acercamiento);
-   TEST_ASSERT_TRUE(state.enviar_y_reiniciar);
+   TEST_ASSERT_TRUE(context.acercamiento);
+   TEST_ASSERT_TRUE(context.enviar_y_reiniciar);
 }
 
 void testEvaluarModoAltoPorOcupacion() {
@@ -52,8 +52,24 @@ void testEvaluarModoAltoPorOcupacion() {
    sensor.ocupacion = 1;
    evaluarModo();
 
-   TEST_ASSERT_EQUAL(ALTA, state.frecuencia_envio);
-   TEST_ASSERT_TRUE(state.enviar_y_reiniciar);
+   TEST_ASSERT_EQUAL(ALTA, context.frecuencia_envio);
+   TEST_ASSERT_TRUE(context.enviar_y_reiniciar);
+
+}
+
+void testSensoresNormal() {
+   sensor.acercamiento = 0;
+   sensor.ocupacion = 0;
+   sensor.luz = 0;
+   sensor.motor_bajando = 0;
+   sensor.motor_subiendo = 0;
+   sensor.fin_carrera_abajo = 0;
+
+   sensor.fin_carrera_arriba = 1;
+   TEST_ASSERT_TRUE(sensoresNormal());
+
+   sensor.acercamiento = 1;
+   TEST_ASSERT_FALSE(sensoresNormal());
 
 
 
