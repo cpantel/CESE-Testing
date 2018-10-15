@@ -10,6 +10,12 @@ void init(){
 
 void evaluarAcercamiento(){
 
+  if (sensor.acercamiento) {
+    state.acercamiento = 1;
+    sensor.acercamiento = 0;
+    state.frecuencia_envio = ALTA;
+    state.enviar_y_reiniciar = 1;
+  }
 }
 
 int AppMain(void)

@@ -39,7 +39,7 @@ void testEvaluarAcercamiento() {
    TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
 
    sensor.acercamiento = 1;
-
+   evaluarAcercamiento();
    TEST_ASSERT_EQUAL(ALTA, state.frecuencia_envio);
    TEST_ASSERT_FALSE(sensor.acercamiento);
    TEST_ASSERT_TRUE(state.acercamiento);
