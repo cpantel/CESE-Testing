@@ -46,6 +46,14 @@ void evaluarModo(){
   }
 }
 
+void reportar(){
+  if (context.enviar_y_reiniciar) {
+    enviarMensaje();
+    context.enviar_y_reiniciar = 0;
+  }
+
+}
+
 int sensoresNormal() {
   return (
     sensor.acercamiento == 0 &&
@@ -64,7 +72,7 @@ int AppMain(void)
   enviarMensajeInicio();
   
 
-
+  //reportar()
   return 0;
 }
 

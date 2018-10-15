@@ -50,4 +50,6 @@ void evaluarModo(void);
 
 int sensoresNormal();
 
+void reportar();
+
 #endif // _MAIN_H_

@@ -3,7 +3,7 @@
 
 void enviarMensajeInicio();
 
-
+void enviarMensaje();
 
 
 

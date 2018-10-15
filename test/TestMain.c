@@ -29,35 +29,7 @@ void testInit() {
    TEST_ASSERT_FALSE(context.acercamiento);
    TEST_ASSERT_FALSE(context.enviar_y_reiniciar);
 }
-/*
-void testEvaluarAcercamiento() {
-   stateToABIERTO();
-   sensor.acercamiento = 0;
-   evaluarAcercamiento();
-   TEST_ASSERT_EQUAL(BAJA, context.frecuencia_envio);
-   TEST_ASSERT_FALSE(context.acercamiento);
-   TEST_ASSERT_FALSE(context.enviar_y_reiniciar);
 
-   sensor.acercamiento = 1;
-   evaluarAcercamiento();
-   TEST_ASSERT_EQUAL(ALTA, context.frecuencia_envio);
-   TEST_ASSERT_FALSE(sensor.acercamiento);
-   TEST_ASSERT_TRUE(context.acercamiento);
-   TEST_ASSERT_TRUE(context.enviar_y_reiniciar);
-}
-*/
-/*
-void testEvaluarModoAltoPorOcupacion() {
-   stateToABIERTO();
-
-   sensor.ocupacion = 1;
-   evaluarModo();
-
-   TEST_ASSERT_EQUAL(ALTA, context.frecuencia_envio);
-   TEST_ASSERT_TRUE(context.enviar_y_reiniciar);
-
-}
-*/
 void testSensoresNormal() {
    sensor.acercamiento = 0;
    sensor.ocupacion = 0;
@@ -92,3 +64,17 @@ void testState() {
   evaluarModo();
   TEST_ASSERT_EQUAL(ABIERTO,context.state);
 }
+
+void testEnvioMensajePorInicioAltaFrecuencia() {
+  enviarMensaje_Expect();
+
+  stateToABIERTO();
+  reportar();  
+  sensor.acercamiento = 1;
+  evaluarModo();
+  reportar();  
+  reportar();  
+  
+}
+
+
