@@ -18,6 +18,9 @@ void evaluarAcercamiento(){
   }
 }
 
+void evaluarModo() {
+}
+
 int AppMain(void)
 {
   init();

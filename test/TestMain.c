@@ -44,9 +44,17 @@ void testEvaluarAcercamiento() {
    TEST_ASSERT_FALSE(sensor.acercamiento);
    TEST_ASSERT_TRUE(state.acercamiento);
    TEST_ASSERT_TRUE(state.enviar_y_reiniciar);
+}
+
+void testEvaluarModoAltoPorOcupacion() {
+   init();
+
+   sensor.ocupacion = 1;
+   evaluarModo();
+
+   TEST_ASSERT_EQUAL(ALTA, state.frecuencia_envio);
+   TEST_ASSERT_TRUE(state.enviar_y_reiniciar);
 
 
 
 }
-
-

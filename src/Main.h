@@ -12,6 +12,7 @@ struct state_t {
 
 struct sensor_t {
   int acercamiento;
+  int ocupacion;
 };
 
 struct state_t state;
