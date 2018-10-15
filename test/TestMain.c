@@ -28,6 +28,25 @@ void testInit() {
    TEST_ASSERT_EQUAL(BAJA, state.frecuencia_envio);
    TEST_ASSERT_FALSE(state.acercamiento);
    TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
+}
+
+void testEvaluarAcercamiento() {
+   init();
+   sensor.acercamiento = 0;
+   evaluarAcercamiento();
+   TEST_ASSERT_EQUAL(BAJA, state.frecuencia_envio);
+   TEST_ASSERT_FALSE(state.acercamiento);
+   TEST_ASSERT_FALSE(state.enviar_y_reiniciar);
+
+   sensor.acercamiento = 1;
+
+   TEST_ASSERT_EQUAL(ALTA, state.frecuencia_envio);
+   TEST_ASSERT_FALSE(sensor.acercamiento);
+   TEST_ASSERT_TRUE(state.acercamiento);
+   TEST_ASSERT_TRUE(state.enviar_y_reiniciar);
+
+
 
 }
+
 

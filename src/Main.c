@@ -8,6 +8,10 @@ void init(){
   state.enviar_y_reiniciar = 0;
 }
 
+void evaluarAcercamiento(){
+
+}
+
 int AppMain(void)
 {
   init();

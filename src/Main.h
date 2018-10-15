@@ -21,5 +21,6 @@ struct sensor_t sensor;
 int AppMain(void);
 int main(void);
 void init(void);
+void evaluarAcercamiento(void);
 
 #endif // _MAIN_H_
