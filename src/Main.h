@@ -30,7 +30,7 @@ struct sensor_t sensor;
 
 int AppMain(void);
 int main(void);
-void init(void);
+void stateToABIERTO(void);
 void evaluarAcercamiento(void);
 void evaluarModo(void);
 int sensoresNormal();

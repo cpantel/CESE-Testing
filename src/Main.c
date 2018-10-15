@@ -2,7 +2,7 @@
 #include "Main.h"
 #include "stdio.h"
 
-void init(){
+void stateToABIERTO(){
   context.frecuencia_envio = BAJA;
   context.acercamiento = 0;
   context.enviar_y_reiniciar = 0;
@@ -41,7 +41,7 @@ void evaluarModo() {
 
 int AppMain(void)
 {
-  init();
+  stateToABIERTO();
   enviarMensajeInicio();
   
 
