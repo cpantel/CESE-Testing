@@ -9,13 +9,40 @@ void stateToABIERTO(){
   context.state = ABIERTO;
 }
 
-void evaluarAcercamiento(){
+void stateToACERCAMIENTO(void){
+  context.frecuencia_envio = ALTA;
+  context.enviar_y_reiniciar = 1;
+  context.state = ACERCAMIENTO;
+}
 
-  if (sensor.acercamiento) {
-    context.acercamiento = 1;
-    sensor.acercamiento = 0;
-    context.frecuencia_envio = ALTA;
-    context.enviar_y_reiniciar = 1;
+void stateToACTUANDO(void){
+  context.frecuencia_envio = ALTA;
+  context.enviar_y_reiniciar = 1;
+  context.state = ACTUANDO;
+}
+
+
+void evaluarModo(){
+  switch (context.state) {
+
+    case ABIERTO:
+      if (sensor.acercamiento) {
+        stateToACERCAMIENTO();
+        sensor.acercamiento = 0;
+      }
+    break;
+    case ACERCAMIENTO:
+      if (! sensoresNormal()) {
+        stateToACTUANDO();
+      }
+    break;
+    case ACTUANDO:
+      if (sensoresNormal()) {
+        stateToABIERTO();
+      }
+    break;
+    default:
+    break;
   }
 }
 
@@ -28,15 +55,7 @@ int sensoresNormal() {
     sensor.motor_subiendo == 0 &&
     sensor.fin_carrera_arriba == 1 &&
     sensor.fin_carrera_abajo == 0
-  );
-}
-
-void evaluarModo() {
-  if (sensor.acercamiento) {
-    context.state = ACERCAMIENTO;
-    context.frecuencia_envio = ALTA;
-    context.enviar_y_reiniciar = 1;
-  } 
+  ); 
 }
 
 int AppMain(void)

@@ -1,9 +1,13 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+
+// constantes y defines
 #define BAJA 10
 #define ALTA 100
 
+
+// tipos
 enum state_t { ABIERTO, ACERCAMIENTO, ACTUANDO };
 
 struct context_t {
@@ -23,16 +27,27 @@ struct sensor_t {
   int fin_carrera_abajo;
 };
 
+// variables
 struct context_t context;
 
 struct sensor_t sensor;
 
+// funciones
 
 int AppMain(void);
+
 int main(void);
+
 void stateToABIERTO(void);
+
+void stateToACERCAMIENTO(void);
+
+void stateToACTUANDO(void);
+
 void evaluarAcercamiento(void);
+
 void evaluarModo(void);
+
 int sensoresNormal();
 
 #endif // _MAIN_H_
