@@ -4,7 +4,7 @@
 
 // constantes y defines
 #define BAJA 10
-#define ALTA 100
+#define ALTA 1
 
 
 // tipos
@@ -12,6 +12,7 @@ enum state_t { ABIERTO, ACERCAMIENTO, ACTUANDO };
 
 struct context_t {
   int frecuencia_envio;
+  int cuenta_abajo_envio;
   int acercamiento;
   int enviar_y_reiniciar;
   enum state_t state;

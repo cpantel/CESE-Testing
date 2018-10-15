@@ -3,7 +3,7 @@
 #include "MockFunctions.h"
 
 void setUp(void) {
-
+  
 }
 
 void tearDown(void) {
@@ -74,7 +74,25 @@ void testEnvioMensajePorInicioAltaFrecuencia() {
   evaluarModo();
   reportar();  
   reportar();  
-  
 }
+
+void testEnvioMensajesBajaFrecuencia(){
+  enviarMensaje_Expect();
+
+  stateToABIERTO();
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar();  
+  reportar(); // -> send message
+  reportar();  
+}
+
 
 

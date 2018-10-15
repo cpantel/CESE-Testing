@@ -4,6 +4,7 @@
 
 void stateToABIERTO(){
   context.frecuencia_envio = BAJA;
+  context.cuenta_abajo_envio = BAJA;
   context.acercamiento = 0;
   context.enviar_y_reiniciar = 0;
   context.state = ABIERTO;
@@ -47,9 +48,12 @@ void evaluarModo(){
 }
 
 void reportar(){
-  if (context.enviar_y_reiniciar) {
+  if (context.enviar_y_reiniciar || context.cuenta_abajo_envio == 0) {
     enviarMensaje();
     context.enviar_y_reiniciar = 0;
+    context.cuenta_abajo_envio = context.frecuencia_envio;     
+  } else {
+    --context.cuenta_abajo_envio;
   }
 
 }
