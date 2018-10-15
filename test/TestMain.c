@@ -75,13 +75,13 @@ void testSensoresNormal() {
 void testState() {
   init();
 
-  TEST_ASSERT_EQUAL(ABIERTO,state);
+  TEST_ASSERT_EQUAL(ABIERTO,context.state);
   sensor.acercamiento = 1;
 
   evaluarModo();
-  TEST_ASSERT_EQUAL(ACERCAMIENTO,state);
+  TEST_ASSERT_EQUAL(ACERCAMIENTO,context.state);
   
-
+  
 
 }
 

@@ -10,6 +10,7 @@ struct context_t {
   int frecuencia_envio;
   int acercamiento;
   int enviar_y_reiniciar;
+  enum state_t state;
 };
 
 struct sensor_t {
@@ -26,7 +27,6 @@ struct context_t context;
 
 struct sensor_t sensor;
 
-enum state_t state;
 
 int AppMain(void);
 int main(void);
