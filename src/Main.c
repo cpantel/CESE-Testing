@@ -19,6 +19,10 @@ void evaluarAcercamiento(){
 }
 
 void evaluarModo() {
+  if (sensor.ocupacion ) {
+    state.frecuencia_envio = ALTA;
+    state.enviar_y_reiniciar = 1;
+  }
 }
 
 int AppMain(void)
