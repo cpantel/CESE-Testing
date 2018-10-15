@@ -2,20 +2,15 @@
 #include "Main.h"
 #include "stdio.h"
 
-struct state_t state;
-
-struct state_t getState() {
-  return state;
-}
-
 int AppMain(void)
 {
 
-  state.frecuencia = BAJA;
+  state.frecuencia_envio = BAJA;
   state.acercamiento = 0;
   state.enviar_y_reiniciar = 0;
 
   enviarMensajeInicio();
+
   return 0;
 }
 

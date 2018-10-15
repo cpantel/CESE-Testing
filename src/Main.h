@@ -5,12 +5,12 @@
 #define ALTA 100
 
 struct state_t {
-  int frecuencia;
+  int frecuencia_envio;
   int acercamiento;
   int enviar_y_reiniciar;
 };
 
-struct state_t getState();
+struct state_t state;
 
 int AppMain(void);
 int main(void);
