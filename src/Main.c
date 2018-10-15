@@ -6,6 +6,7 @@ void init(){
   context.frecuencia_envio = BAJA;
   context.acercamiento = 0;
   context.enviar_y_reiniciar = 0;
+  state = ABIERTO;
 }
 
 void evaluarAcercamiento(){
@@ -32,7 +33,8 @@ int sensoresNormal() {
 
 
 void evaluarModo() {
-  if (sensor.ocupacion ) {
+  if (sensor.acercamiento) {
+    state = ACERCAMIENTO;
     context.frecuencia_envio = ALTA;
     context.enviar_y_reiniciar = 1;
   }
@@ -42,6 +44,8 @@ int AppMain(void)
 {
   init();
   enviarMensajeInicio();
+  
+
 
   return 0;
 }

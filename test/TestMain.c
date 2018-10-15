@@ -45,7 +45,7 @@ void testEvaluarAcercamiento() {
    TEST_ASSERT_TRUE(context.acercamiento);
    TEST_ASSERT_TRUE(context.enviar_y_reiniciar);
 }
-
+/*
 void testEvaluarModoAltoPorOcupacion() {
    init();
 
@@ -56,7 +56,7 @@ void testEvaluarModoAltoPorOcupacion() {
    TEST_ASSERT_TRUE(context.enviar_y_reiniciar);
 
 }
-
+*/
 void testSensoresNormal() {
    sensor.acercamiento = 0;
    sensor.ocupacion = 0;
@@ -70,7 +70,19 @@ void testSensoresNormal() {
 
    sensor.acercamiento = 1;
    TEST_ASSERT_FALSE(sensoresNormal());
+}
 
+void testState() {
+  init();
+
+  TEST_ASSERT_EQUAL(ABIERTO,state);
+  sensor.acercamiento = 1;
+
+  evaluarModo();
+  TEST_ASSERT_EQUAL(ACERCAMIENTO,state);
+  
 
 
 }
+
+

@@ -4,6 +4,8 @@
 #define BAJA 10
 #define ALTA 100
 
+enum state_t { ABIERTO, ACERCAMIENTO, ACTUANDO };
+
 struct context_t {
   int frecuencia_envio;
   int acercamiento;
@@ -23,6 +25,8 @@ struct sensor_t {
 struct context_t context;
 
 struct sensor_t sensor;
+
+enum state_t state;
 
 int AppMain(void);
 int main(void);
